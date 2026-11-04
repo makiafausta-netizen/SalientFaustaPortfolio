@@ -3,211 +3,374 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fff9fd">
-  <meta name="description" content="Salient Fausta Makia — robotics, mechatronics, autonomy, and AI. Explore my engineering experience and projects. Open to Summer 2027 internships.">
+  <meta name="theme-color" content="#faf1f7">
+  <meta name="description" content="Salient Fausta Makia is a robotics and mechatronics engineering student focused on autonomy, embedded systems, simulation, controls, and AI. Seeking Summer 2027 internship and research opportunities.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Salient Fausta Makia | Robotics · Autonomy · AI">
-  <meta property="og:description" content="Engineering robots that sense, think, and move. Portfolio and selected projects.">
-  <title>Salient Fausta Makia | Robotics, Autonomy & AI</title>
+  <meta property="og:title" content="Salient Fausta Makia | Robotics and Autonomy">
+  <meta property="og:description" content="Engineering experience, robotics projects, and research. Open to Summer 2027 internships and research opportunities.">
+  <title>Salient Fausta Makia | Robotics and Autonomy</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Refined rose and lavender accents. All overrides are contained in index.html. */
+    :root {
+      --ink: #241b26;
+      --charcoal: #352e39;
+      --muted: #605762;
+      --faint: #8d7c8a;
+      --line: #e8dfe9;
+      --light-line: #eee7ee;
+      --surface: #ffffff;
+      --alternate: #faf7fb;
+      --dark: #2a2030;
+      --accent: #795079;
+      --accent-deep: #5c3c61;
+      --rose: #f5e7f0;
+      --lavender: #efeaf8;
+    }
+    body { color: var(--ink); }
+    ::selection { background: #e5c6dd; color: #241b26; }
+    :focus-visible { outline-color: #986ba0; }
+    .site-header { background: rgba(255, 255, 255, .96); border-bottom-color: #eadfea; }
+    .wordmark { letter-spacing: -.038em; }
+    .wordmark-dot { color: #ad6b99; }
+    .main-nav a:hover { color: var(--accent); }
+    .main-nav a.nav-contact,
+    .button-dark { background: var(--accent-deep); border-color: var(--accent-deep); color: #fff; }
+    .main-nav a.nav-contact:hover,
+    .button-dark:hover { background: #442c48; color: #fff; }
+    .hero {
+      background: radial-gradient(ellipse at 87% 18%, rgba(226, 203, 238, .52), transparent 43%),
+                  linear-gradient(118deg, #fffafc 0%, #faf1f7 52%, #f4effb 100%);
+    }
+    .eyebrow { color: var(--accent-deep); font-weight: 600; }
+    h1 { letter-spacing: -.062em; }
+    h1 span { color: var(--accent-deep); }
+    .hero-detail, .intro-content > p { color: #4c4350; }
+    .availability { align-items: center; color: #49314c; }
+    .availability-marker { background: #9e638c; margin-top: 0; box-shadow: 0 0 0 5px #ecd8e6; }
+    .button-light { color: var(--accent-deep); border-color: #a98ea9; background: rgba(255, 255, 255, .7); }
+    .button-light:hover { background: #f1e5f2; }
+    .portrait-frame { border: 8px solid rgba(255,255,255,.9); border-radius: 10px; background: #eee5ef;
+      box-shadow: 0 24px 64px rgba(69,39,73,.12), 0 0 0 1px #e7d9e9; }
+    .portrait-frame img { filter: none; }
+    .portrait-frame figcaption { background: rgba(43,29,47,.82); }
+    .portrait-caption { color: #706074; }
+    .overview-strip, .overview-strip > div + div { border-color: #decfdf; }
+    .overview-label, .section-index, .education-facts span { color: var(--accent); }
+    .intro-section { background: #fff; }
+    .education-facts > div { border-top: 2px solid #bda1bd; }
+    .section-title-row { border-bottom-color: #ded4e2; }
+    .skills-section { background: #faf7fb; }
+    .skill-group { border-bottom-color: #e8deea; }
+    .skill-group h3 { color: #3e2c44; }
+    .skill-group p { color: #5b505d; }
+    .skill-group:nth-child(3n+2), .skill-group:nth-child(3n+3) { border-left-color: #e8deea; }
+    .certification span { color: var(--accent); }
+    .entry-type { border-color: #dbbfd5; background: #f7eef5; color: #623c63; border-radius: 3px; }
+    .entry-date, .entry-location, .project-date, .project-kind { color: #766779; }
+    .entry-body h3, .project-heading h3 { color: #302233; }
+    .entry-organization, .project-subheading { color: #694e6b; }
+    .detail-list li { color: #3b343d; }
+    .detail-list li::before { background: #a472a6; width: 6px; height: 6px; border-radius: 2px; }
+    .experience-entry { border-bottom-color: #e9e0ea; }
+    .tag-row span { border-color: #e4d6e5; background: #faf5fa; color: #5d4960; border-radius: 3px; }
+    .projects-section { background: linear-gradient(180deg, #fbf8fc 0%, #f9f6fb 100%); }
+    .project-number { color: #c29dc4; }
+    .projects-section .tag-row span { background: rgba(255,255,255,.55); }
+    .project-entry { border-bottom-color: #e6dce8; }
+    .leadership-content { border-top-color: #a586aa; }
+    .recognition strong { color: #583b5c; }
+    .contact-section { background: linear-gradient(125deg, #302435, #49314d); }
+    .contact-index { color: #e7bdda; }
+    .contact-layout p:not(.section-index) { color: #f0e5f0; }
+    .button-white { background: #f8e7f2; color: #422d45; border-color: #f8e7f2; }
+    .button-white:hover { background: #fff; }
+    .contact-link { border-color: #ac91b1; }
+    .email-line { color: #efdcf0; }
+    .email-line button { border-color: #bea1c2; }
+    .site-footer { background: #241b28; border-top-color: #634c67; }
+    @media(max-width: 810px) {
+      .main-nav { background: #fffafd; border-bottom-color: #eadfea; }
+      .skill-group:nth-child(2n) { border-left-color: #e8deea; }
+    }
+    @media print {
+      .hero, .projects-section, .skills-section, .contact-section { background: white !important; }
+      .portrait-frame { box-shadow: none; }
+    }
+  </style>
   <script src="script.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a href="#top" class="brand" aria-label="Salient Fausta Makia, home">
-        <span class="brand-symbol">s<span class="brand-dot">.</span></span>
-        <span class="brand-name">salient <span>fausta</span></span>
-      </a>
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+    <div class="container header-inner">
+      <a class="wordmark" href="#top" aria-label="Salient Fausta Makia, home">Salient Fausta Makia<span class="wordmark-dot">.</span></a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+      <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a class="nav-contact" href="#contact">Let's connect <span aria-hidden="true">↗</span></a>
+        <a href="#leadership">Leadership</a>
+        <a class="nav-contact" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero section" aria-labelledby="hero-title">
-      <div class="hero-orb orb-one" aria-hidden="true"></div>
-      <div class="hero-orb orb-two" aria-hidden="true"></div>
-      <div class="container hero-layout">
-        <div class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow-star">✳</span> HELLO, I'M SALIENT FAUSTA MAKIA</div>
-          <h1 id="hero-title">I build robots that <span class="gradient-text">sense, think &amp; move.</span></h1>
-          <p class="hero-description">I'm a robotics and mechatronics engineering student who loves bringing intelligent systems to life—from the first line of code to a robot moving in the real world.</p>
-          <p class="hero-secondary">Passionate about <strong>robot autonomy, embedded systems, simulation, and AI</strong>. Curious by nature. Happiest when I'm building something.</p>
-          <div class="hero-cta">
-            <a class="button button-primary" href="#projects">Explore my projects <span aria-hidden="true">↗</span></a>
-            <a class="button button-outline" href="#contact">Get in touch</a>
+    <section class="hero" id="about" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">ROBOTICS / AUTONOMY / ARTIFICIAL INTELLIGENCE</p>
+          <h1 id="hero-title">I build and test <span>intelligent robotic systems.</span></h1>
+          <p class="hero-lead">I'm Salient Fausta Makia, a Robotics, Mechatronics &amp; Automation Engineering student at Widener University with a minor in Computer Science.</p>
+          <p class="hero-detail">I'm interested in the part of robotics where software meets hardware. My work spans embedded programming, sensors, feedback control, simulation, and AI. What motivates me is seeing a system move from an idea on a screen to something that works reliably in the real world.</p>
+          <div class="availability"><span class="availability-marker" aria-hidden="true"></span><strong>Seeking Summer 2027 internship and research opportunities</strong></div>
+          <div class="actions">
+            <a class="button button-dark" href="#projects">Explore my projects <span aria-hidden="true">↗</span></a>
+            <a class="button button-light" href="mailto:sfmakiankonghoenoh@widener.edu?subject=Summer%202027%20Opportunity">Contact me</a>
           </div>
-          <div class="availability"><span class="pulse-dot" aria-hidden="true"></span> Open to Summer 2027 internships <span class="availability-arrow" aria-hidden="true">↗</span></div>
         </div>
-        <div class="hero-art">
-          <div class="photo-outline" aria-hidden="true"></div>
-          <div class="portrait-card">
-            <!-- REPLACE THIS WITH YOUR OWN PHOTO: change the src to e.g. assets/my-photo.jpg -->
-            <img class="portrait-image" src="assets/profile-placeholder.svg" alt="Portrait placeholder — replace with your own photo">
-            <span class="photo-caption">your future photo here ✨</span>
-          </div>
-          <div class="floating-note float-top"><span class="note-symbol">✷</span> robotics + creativity</div>
-          <div class="floating-note float-bottom"><span class="note-icon">⌁</span> from simulation to reality</div>
-          <div class="little-sparkle sparkle-one" aria-hidden="true">✳</div>
-          <div class="little-sparkle sparkle-two" aria-hidden="true">✦</div>
+        <div class="hero-visual">
+          <figure class="portrait-frame">
+            <!-- Replace the image source with your portrait, for example assets/my-photo.jpg -->
+            <img src="assets/portrait-placeholder.svg" alt="Portrait placeholder for Salient Fausta Makia. Replace with a personal headshot." width="600" height="720">
+            <figcaption>Portrait image placeholder</figcaption>
+          </figure>
+          <p class="portrait-caption">Widener University <span>Chester, Pennsylvania</span></p>
         </div>
       </div>
-      <div class="container mini-facts" aria-label="Quick facts">
-        <div><span class="fact-number">2026</span><span class="fact-label">SharkNinja robotics intern</span></div>
-        <span class="fact-divider" aria-hidden="true"></span>
-        <div><span class="fact-number">ROS2</span><span class="fact-label">Autonomous robotics systems</span></div>
-        <span class="fact-divider" aria-hidden="true"></span>
-        <div><span class="fact-number">2027</span><span class="fact-label">B.S. graduation</span></div>
+      <div class="container overview-strip" aria-label="Professional overview">
+        <div><span class="overview-label">CURRENT FOCUS</span><strong>Autonomy and embedded controls</strong></div>
+        <div><span class="overview-label">INDUSTRY EXPERIENCE</span><strong>SharkNinja, Summer 2026</strong></div>
+        <div><span class="overview-label">EDUCATION</span><strong>B.S. expected May 2027</strong></div>
       </div>
     </section>
 
-    <section id="about" class="section about-section" aria-labelledby="about-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-label">01 / THE PERSON BEHIND THE CODE</span>
-          <h2 id="about-title">A little about <em>me.</em></h2>
+    <section class="section intro-section" aria-labelledby="intro-title">
+      <div class="container two-column-intro">
+        <div class="section-heading">
+          <p class="section-index">01 / ABOUT ME</p>
+          <h2 id="intro-title">Why I work in robotics.</h2>
         </div>
-        <div class="about-layout">
-          <div class="about-text reveal">
-            <p class="lead">I love the intersection of <span class="ink-highlight">hardware, software, and imagination.</span></p>
-            <p>I'm studying <strong>Robotics, Mechatronics &amp; Automation Engineering</strong> at Widener University, with a minor in Computer Science. My work has taken me from autonomous mobility and underwater robots to simulation and sensor validation at SharkNinja.</p>
-            <p>What excites me most is making robots more capable in the real world: giving them better ways to perceive, decide, and move. I also enjoy the collaborative side of engineering—learning from people with different backgrounds and turning ideas into working systems.</p>
-            <div class="education-line"><span aria-hidden="true">🎓</span><div><strong>Widener University</strong><span>B.S. expected May 2027 · Master's studies planned for August 2027</span></div></div>
-          </div>
-          <div class="passion-grid reveal">
-            <article class="passion-card pink">
-              <div class="passion-icon">↗</div>
-              <h3>Autonomy</h3>
-              <p>Helping robots understand their surroundings and make smart, safe decisions.</p>
-            </article>
-            <article class="passion-card lavender">
-              <div class="passion-icon">⚙</div>
-              <h3>Robotics</h3>
-              <p>Making software, sensors, motors, and mechanical systems work as one.</p>
-            </article>
-            <article class="passion-card cream">
-              <div class="passion-icon">✳</div>
-              <h3>AI</h3>
-              <p>Exploring how learning and perception can make machines more adaptable.</p>
-            </article>
+        <div class="intro-content">
+          <p>I enjoy designing systems that need to think and act in the physical world. That means understanding the sensors, writing the software, testing the control logic, and figuring out what went wrong when the real robot behaves differently from the simulation.</p>
+          <p>Through research at Widener and an internship at SharkNinja, I've worked on autonomous mobile robots, robotic perception, embedded systems, sensor validation, and simulation. I'm especially interested in vehicle controls, intelligent robotics, and practical applications of AI.</p>
+          <div class="education-facts">
+            <div><span>EDUCATION</span><strong>B.S. Robotics, Mechatronics &amp; Automation Engineering</strong><small>Widener University | Minor in Computer Science | GPA: 3.7/4.0 | Expected May 2027</small></div>
+            <div><span>NEXT STEP</span><strong>Planned graduate studies</strong><small>M.S. Robotics, Mechatronics &amp; Automation Engineering, intended start August 2027</small></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="skills" class="section skills-section" aria-labelledby="skills-title">
+    <section class="section skills-section alt-section" id="skills" aria-labelledby="skills-title">
       <div class="container">
-        <div class="section-head centered reveal">
-          <span class="section-label">02 / MY TOOLKIT</span>
-          <h2 id="skills-title">The things I <em>build with.</em></h2>
-          <p>A mix of software, embedded hardware, simulation, and hands-on experimentation.</p>
+        <div class="section-title-row">
+          <div><p class="section-index">02 / TECHNICAL SKILLS</p><h2 id="skills-title">Tools I work with.</h2></div>
+          <p class="section-subtitle">A focused overview of the software, hardware, and engineering methods behind my projects.</p>
         </div>
         <div class="skills-grid">
-          <article class="skill-card reveal"><span class="skill-card-icon">&lt;/&gt;</span><h3>Programming &amp; embedded</h3><div class="skill-tags"><span>C / C++</span><span>Python</span><span>Linux</span><span>Git</span><span>CAN bus</span><span>STM32 / ESP32</span></div></article>
-          <article class="skill-card reveal"><span class="skill-card-icon">⌁</span><h3>Robotics &amp; controls</h3><div class="skill-tags"><span>ROS2</span><span>PID control</span><span>Sensor fusion</span><span>Kalman filtering</span><span>Odometry</span><span>Jetson</span></div></article>
-          <article class="skill-card reveal"><span class="skill-card-icon">◈</span><h3>Simulation &amp; validation</h3><div class="skill-tags"><span>MuJoCo</span><span>Isaac Sim</span><span>Gazebo</span><span>MATLAB / Simulink</span><span>Sensor testing</span><span>KPIs</span></div></article>
-          <article class="skill-card reveal"><span class="skill-card-icon">✧</span><h3>AI &amp; computer vision</h3><div class="skill-tags"><span>PyTorch</span><span>OpenCV</span><span>ArUco markers</span><span>Reinforcement learning</span><span>Synthetic data</span></div></article>
-          <article class="skill-card reveal"><span class="skill-card-icon">✺</span><h3>Hardware &amp; prototyping</h3><div class="skill-tags"><span>LiDAR / IMU</span><span>Encoders</span><span>Arduino</span><span>PLCs</span><span>SolidWorks</span><span>3D printing</span></div></article>
+          <article class="skill-group"><h3>Programming &amp; Software</h3><p>C/C++, Python, Embedded C, Linux (Ubuntu), Git, debugging, multithreading</p></article>
+          <article class="skill-group"><h3>Embedded Systems &amp; Controls</h3><p>CAN bus, Ethernet, PID control, state estimation, Kalman filtering, STM32, ESP32</p></article>
+          <article class="skill-group"><h3>Robotics &amp; Simulation</h3><p>ROS2, MuJoCo, NVIDIA Isaac Sim, Gazebo, RViz, MATLAB/Simulink</p></article>
+          <article class="skill-group"><h3>Testing &amp; Validation</h3><p>Sensor simulation, HIL simulation workflows, KPI-based testing, system integration, fault diagnosis</p></article>
+          <article class="skill-group"><h3>AI &amp; Computer Vision</h3><p>PyTorch, TensorFlow, OpenCV, ArUco markers, reinforcement learning, synthetic data</p></article>
+          <article class="skill-group"><h3>Hardware &amp; Design</h3><p>NVIDIA Jetson, LiDAR, IMU, encoders, PLCs, Universal Robots, SolidWorks, AutoCAD, FEA</p></article>
+        </div>
+        <p class="certification"><span>TRAINING</span> Universal Robots e-Series Core Track, January 2026</p>
+      </div>
+    </section>
+
+    <section class="section experience-section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-title-row">
+          <div><p class="section-index">03 / PROFESSIONAL &amp; RESEARCH EXPERIENCE</p><h2 id="experience-title">Experience.</h2></div>
+          <p class="section-subtitle">Work involving software development, simulation, testing, and multidisciplinary engineering.</p>
+        </div>
+        <div class="experience-list">
+          <article class="experience-entry">
+            <div class="entry-meta"><span class="entry-type">INDUSTRY</span><span class="entry-date">SUMMER 2026</span><span class="entry-location">Needham, MA</span></div>
+            <div class="entry-body">
+              <h3>Robotics &amp; Mechatronics Engineering Intern</h3>
+              <p class="entry-organization">SharkNinja | Robot Vacuum Team</p>
+              <ul class="detail-list">
+                <li>Developed Python/MuJoCo simulations to evaluate robot kinematics, dynamics, clearances, and mechanical constraints before physical testing.</li>
+                <li>Built a reusable library of simulation environments and edge-case scenarios for navigation and robot behavior testing across vacuum configurations.</li>
+                <li>Simulated ToF and LiDAR sensor behavior, using performance KPIs to evaluate sensing accuracy and system performance.</li>
+                <li>Conducted HIL testing with NVIDIA Isaac Sim and real-world sensor inputs to evaluate behavior and troubleshoot system responses.</li>
+                <li>Developed a Python/OpenCV GUI with ArUco markers for real-time angle calculations, motion detection, visualization, and debugging.</li>
+                <li>Supported reinforcement learning workflows using real-world and synthetically generated datasets for robot training.</li>
+                <li>Collaborated with mechanical, electrical, and systems engineers on robotics and AI development.</li>
+              </ul>
+              <div class="tag-row"><span>Python</span><span>MuJoCo</span><span>Isaac Sim</span><span>OpenCV</span><span>Sensor validation</span></div>
+            </div>
+          </article>
+          <article class="experience-entry">
+            <div class="entry-meta"><span class="entry-type">UNIVERSITY RESEARCH</span><span class="entry-date">2024 TO PRESENT</span><span class="entry-location">Chester, PA</span></div>
+            <div class="entry-body">
+              <h3>Robotics, AI &amp; Automation Research</h3>
+              <p class="entry-organization">Widener University | Robotics, AI &amp; Automation Research Laboratory</p>
+              <ul class="detail-list">
+                <li>Developed and tested autonomous robotic platforms combining perception software, embedded electronics, sensors, and feedback control.</li>
+                <li>Worked across simulation, hardware integration, debugging, and physical testing for autonomous mobility and underwater robotics projects.</li>
+                <li>Communicated engineering findings through demonstrations and research presentations, including an award-winning autonomous mobility presentation.</li>
+              </ul>
+              <div class="tag-row"><span>ROS2</span><span>Embedded systems</span><span>Sensor fusion</span><span>System integration</span></div>
+            </div>
+          </article>
+          <article class="experience-entry">
+            <div class="entry-meta"><span class="entry-type">APPLIED AI RESEARCH</span><span class="entry-date">MAY TO SEPTEMBER 2024</span><span class="entry-location">Widener University</span></div>
+            <div class="entry-body">
+              <h3>AI &amp; Machine Learning Researcher</h3>
+              <p class="entry-organization">Conversational AI and Multimodal Interaction</p>
+              <ul class="detail-list">
+                <li>Designed and deployed a multimodal AI chatbot integrating computer vision, speech recognition, and natural language processing.</li>
+                <li>Developed camera-based facial recognition and tracking to identify specific users.</li>
+                <li>Integrated machine learning models and APIs for information retrieval in a Python/Linux application.</li>
+              </ul>
+              <div class="tag-row"><span>Python</span><span>Computer vision</span><span>Speech interfaces</span><span>Linux</span></div>
+            </div>
+          </article>
+          <article class="experience-entry">
+            <div class="entry-meta"><span class="entry-type">RESEARCH SUPPORT</span><span class="entry-date">JANUARY TO MAY 2024</span><span class="entry-location">Widener University</span></div>
+            <div class="entry-body">
+              <h3>Robotics, Automation &amp; Controls Research Lab Assistant</h3>
+              <p class="entry-organization">Robotics Hardware Integration and Testing</p>
+              <ul class="detail-list">
+                <li>Assisted with assembly and programming of a humanoid robot used for interaction and live demonstrations.</li>
+                <li>Supported sensor installation, actuator integration, and firmware debugging during system testing.</li>
+                <li>Helped develop and debug C++ and Python software for robotics experiments and research activities.</li>
+              </ul>
+              <div class="tag-row"><span>C++ / Python</span><span>Sensors</span><span>Actuators</span><span>Robotic integration</span></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="section experience-section" aria-labelledby="experience-title">
+    <section class="section projects-section alt-section" id="projects" aria-labelledby="projects-title">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="section-label">03 / WHERE I'VE GROWN</span>
-          <h2 id="experience-title">Experience <em>in motion.</em></h2>
-          <p>Real problems, real systems, and a whole lot of learning along the way.</p>
+        <div class="section-title-row">
+          <div><p class="section-index">04 / ENGINEERING PROJECTS</p><h2 id="projects-title">Projects and technical work.</h2></div>
+          <p class="section-subtitle">Selected work across autonomous robotics, embedded software, industrial automation, and applied AI.</p>
         </div>
-        <div class="timeline">
-          <article class="timeline-entry reveal">
-            <div class="timeline-date">SUMMER 2026</div>
-            <div class="timeline-pin"></div>
-            <div class="timeline-content">
-              <div class="experience-top"><div><h3>Robotics &amp; Mechatronics Engineering Intern</h3><span class="experience-company">SharkNinja · Simulation &amp; Sensors · Needham, MA</span></div><span class="experience-badge">Industry</span></div>
-              <p>Built Python/MuJoCo environments and a reusable library of room layouts and edge cases to evaluate robot dynamics and clearances before physical testing. Worked with ToF and LiDAR sensor simulations, KPI-based validation, Isaac Sim using real-world sensor inputs, and an OpenCV/ArUco measurement GUI. Also created synthetic data for robot-learning workflows and collaborated across engineering teams.</p>
-              <div class="micro-tags"><span>MuJoCo</span><span>Python</span><span>Isaac Sim</span><span>Sensor validation</span><span>OpenCV</span></div>
+        <div class="project-list">
+          <article class="project-entry">
+            <div class="project-side"><span class="project-number">01</span><span class="project-kind">AUTONOMY / EMBEDDED CONTROLS</span></div>
+            <div class="project-content">
+              <div class="project-heading"><h3>Semi-Autonomous Electric Wheelchair</h3><span class="project-date">May 2025 to Present</span></div>
+              <p class="project-subheading">Robotic Vehicle Platform | Widener University</p>
+              <ul class="detail-list">
+                <li>Developed a ROS2 autonomy stack (C++/Python) for real-time perception and motor control on NVIDIA Jetson and ESP32 hardware.</li>
+                <li>Integrated four 2D/4D LiDAR sensors, processing more than 120,000 point-cloud data points for indoor and outdoor mapping and obstacle detection.</li>
+                <li>Implemented CAN bus communication, translating real-time sensor feedback into motor commands for autonomous motion.</li>
+                <li>Integrated rotary encoders, IMU, and ultrasonic sensors with sensor fusion and Kalman filtering for state estimation, wheel odometry, and closed-loop navigation.</li>
+                <li>Developed path-planning logic to navigate around stationary and moving obstacles while accounting for vehicle dimensions and clearances.</li>
+                <li>Built Gazebo, RViz, and MATLAB/Simulink simulations to test control algorithms and sensor behavior.</li>
+                <li>Designed custom sensor mounts using AutoCAD, FEA, and 3D printing for mechanical integration and testing.</li>
+                <li>Received the Best Research Presentation Award for the autonomous mobility project.</li>
+              </ul>
+              <div class="tag-row"><span>ROS2</span><span>C++ / Python</span><span>CAN bus</span><span>Jetson</span><span>Kalman filtering</span><span>Gazebo</span></div>
             </div>
           </article>
-          <article class="timeline-entry reveal">
-            <div class="timeline-date">2024 — PRESENT</div>
-            <div class="timeline-pin"></div>
-            <div class="timeline-content">
-              <div class="experience-top"><div><h3>Robotics, AI &amp; Automation Research</h3><span class="experience-company">Widener University · Chester, PA</span></div><span class="experience-badge subtle">Research</span></div>
-              <p>Develop autonomous robotic systems that combine embedded programming, real-time perception, controls, and simulation. My main work includes a semi-autonomous wheelchair, an underwater robot for RoboSub, and autonomous mobile robot prototypes—taking projects from integration and debugging to testing and demonstration.</p>
-              <div class="micro-tags"><span>ROS2</span><span>C++</span><span>CAN bus</span><span>Embedded systems</span><span>Controls</span></div>
+          <article class="project-entry">
+            <div class="project-side"><span class="project-number">02</span><span class="project-kind">INDUSTRIAL AUTOMATION</span></div>
+            <div class="project-content">
+              <div class="project-heading"><h3>PLC and UR3e Automated Gauging &amp; Sorting Station</h3><span class="project-date">2026</span></div>
+              <p class="project-subheading">Conveyor Automation | Programmable Logic Controllers and Industrial Robotics</p>
+              <ul class="detail-list">
+                <li>Programmed PLC control logic to coordinate an automated conveyor, gauging station, and part-sorting process.</li>
+                <li>Integrated capacitive, optical, and retroreflective sensors for part detection, measurement decisions, and automated sequencing.</li>
+                <li>Programmed a Universal Robots UR3e arm for pick-and-place operations based on sensor inputs and sorting results.</li>
+                <li>Implemented PLC-to-robot coordination, timers, counters, start/stop conditions, interlocks, and fault-handling logic to improve operational safety.</li>
+                <li>Tested station behavior across normal operation, sensor-triggered transitions, and stop/reset scenarios to verify system integration.</li>
+              </ul>
+              <div class="tag-row"><span>PLC ladder logic</span><span>UR3e</span><span>Conveyor automation</span><span>Industrial sensors</span><span>Safety interlocks</span></div>
             </div>
           </article>
-          <article class="timeline-entry reveal">
-            <div class="timeline-date">2024 — PRESENT</div>
-            <div class="timeline-pin"></div>
-            <div class="timeline-content">
-              <div class="experience-top"><div><h3>Founder &amp; President, AI Club</h3><span class="experience-company">Widener University</span></div><span class="experience-badge subtle">Leadership</span></div>
-              <p>Founded and now lead a student community of 40+ members interested in AI, robotics, and engineering, creating opportunities to connect and learn through workshops and projects.</p>
+          <article class="project-entry">
+            <div class="project-side"><span class="project-number">03</span><span class="project-kind">AUTONOMOUS ROBOTICS</span></div>
+            <div class="project-content">
+              <div class="project-heading"><h3>Autonomous Underwater Vehicle</h3><span class="project-date">May to September 2025</span></div>
+              <p class="project-subheading">RoboSub Competition 2025</p>
+              <ul class="detail-list">
+                <li>Developed ROS2-based embedded software (C++/Python) for real-time autonomous navigation and motor control.</li>
+                <li>Used Ethernet communication to remotely debug and validate software and motor control during underwater testing.</li>
+                <li>Developed OpenCV perception software, integrating camera, IMU, and pressure sensor data for object detection and recognition.</li>
+                <li>Modeled and tuned PID control systems in MATLAB/Simulink, validating performance through simulation and field tests.</li>
+                <li>Integrated Arduino, Raspberry Pi, and STM32 hardware, including electrical wiring and waterproof enclosure assembly.</li>
+              </ul>
+              <div class="tag-row"><span>ROS2</span><span>Embedded C++</span><span>Ethernet</span><span>OpenCV</span><span>PID control</span></div>
+            </div>
+          </article>
+          <article class="project-entry">
+            <div class="project-side"><span class="project-number">04</span><span class="project-kind">EMBEDDED ROBOTICS</span></div>
+            <div class="project-content">
+              <div class="project-heading"><h3>Autonomous Firefighting Robot</h3><span class="project-date">January to May 2025</span></div>
+              <p class="project-subheading">Mobile Robot | Embedded Control and Sensor Integration</p>
+              <ul class="detail-list">
+                <li>Developed real-time embedded C software for sensor processing, decision-making, and motion control.</li>
+                <li>Implemented closed-loop motor control using encoder feedback for precise navigation.</li>
+                <li>Developed sensor-driven decision logic integrating thermal, ultrasonic, and proximity sensors.</li>
+                <li>Performed hardware/software integration, debugging, and performance tuning.</li>
+              </ul>
+              <div class="tag-row"><span>Embedded C++</span><span>Encoders</span><span>Closed-loop control</span><span>Sensor integration</span></div>
+            </div>
+          </article>
+          <article class="project-entry">
+            <div class="project-side"><span class="project-number">05</span><span class="project-kind">ARTIFICIAL INTELLIGENCE</span></div>
+            <div class="project-content">
+              <div class="project-heading"><h3>Multimodal Conversational AI System</h3><span class="project-date">Summer 2024</span></div>
+              <p class="project-subheading">Research Project | Python and Human-Robot Interaction</p>
+              <ul class="detail-list">
+                <li>Designed and deployed a multimodal AI chatbot integrating computer vision, speech recognition, and natural language processing.</li>
+                <li>Developed camera-based facial recognition and tracking to identify specific users.</li>
+                <li>Integrated machine learning models and APIs for information retrieval in a Python/Linux application.</li>
+              </ul>
+              <div class="tag-row"><span>Python</span><span>Computer vision</span><span>Speech AI</span><span>Linux</span></div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="section projects-section" aria-labelledby="projects-title">
-      <div class="container">
-        <div class="section-head section-head-projects reveal">
-          <div><span class="section-label">04 / SELECTED PROJECTS</span><h2 id="projects-title">Made with curiosity <em>&amp; code.</em></h2><p>A few of the robots and intelligent systems I've helped bring to life.</p></div>
-          <div class="filters" role="group" aria-label="Filter projects">
-            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
-            <button class="filter-button" type="button" data-filter="robotics" aria-pressed="false">Robotics</button>
-            <button class="filter-button" type="button" data-filter="ai" aria-pressed="false">AI</button>
+    <section class="section leadership-section" id="leadership" aria-labelledby="leadership-title">
+      <div class="container leadership-grid">
+        <div class="section-heading"><p class="section-index">05 / LEADERSHIP</p><h2 id="leadership-title">Beyond technical work.</h2></div>
+        <div class="leadership-content">
+          <div class="leadership-heading"><h3>Founder &amp; President, Widener AI Club</h3><span>2024 to Present</span></div>
+          <ul class="detail-list">
+            <li>Founded and led a student organization with more than 40 members interested in artificial intelligence, robotics, and engineering.</li>
+            <li>Organized technical workshops and activities that give students opportunities to learn, collaborate, and build engineering skills.</li>
+          </ul>
+          <div class="secondary-role">
+            <div class="leadership-heading"><h3>STEM Tutor</h3></div>
+            <ul class="detail-list">
+              <li>Tutored students in mathematics, physics, programming, and engineering concepts, including Python, C++, and MATLAB.</li>
+              <li>Helped students work through technical problems by breaking down algorithms and engineering concepts into clear steps.</li>
+            </ul>
           </div>
+          <div class="recognition"><span>RECOGNITION</span><strong>Best Research Presentation Award</strong><p>Autonomous mobility research project at Widener University</p></div>
         </div>
-        <div class="projects-grid">
-          <article class="project-card featured reveal" data-category="robotics">
-            <div class="project-image-frame"><img src="assets/wheelchair-placeholder.svg" alt="Illustration placeholder for the autonomous wheelchair project" loading="lazy"><span class="image-placeholder-note">REPLACE WITH PROJECT PHOTO</span></div>
-            <div class="project-body"><span class="project-overline">FEATURED PROJECT · 2025–PRESENT</span><h3>Semi-Autonomous Electric Wheelchair</h3><p>Building a mobility platform that can perceive obstacles, estimate its position, and plan safe movement. Developed ROS2 autonomy software and CAN-based motor commands; integrated LiDAR, encoders, IMU, and ultrasonic sensors.</p><div class="micro-tags"><span>ROS2</span><span>C++ / Python</span><span>CAN</span><span>Sensor fusion</span></div><span class="project-note">✦ Best Research Presentation Award</span></div>
-          </article>
-          <article class="project-card reveal" data-category="robotics">
-            <div class="project-image-frame"><img src="assets/auv-placeholder.svg" alt="Illustration placeholder for RoboSub underwater robot" loading="lazy"><span class="image-placeholder-note">REPLACE WITH PROJECT PHOTO</span></div>
-            <div class="project-body"><span class="project-overline">ROBOTICS · 2025</span><h3>Autonomous Underwater Vehicle</h3><p>Developed ROS2 software for underwater navigation, combined camera and sensor data, and tuned PID controls in MATLAB/Simulink. Used Ethernet for testing and debugging during underwater operation.</p><div class="micro-tags"><span>ROS2</span><span>OpenCV</span><span>PID</span><span>Ethernet</span></div></div>
-          </article>
-          <article class="project-card reveal" data-category="robotics">
-            <div class="project-image-frame"><img src="assets/firefighting-placeholder.svg" alt="Illustration placeholder for autonomous firefighting robot" loading="lazy"><span class="image-placeholder-note">REPLACE WITH PROJECT PHOTO</span></div>
-            <div class="project-body"><span class="project-overline">EMBEDDED ROBOTICS · 2025</span><h3>Autonomous Firefighting Robot</h3><p>Programmed an embedded mobile robot to process sensor input, make navigation decisions, and use encoder feedback for closed-loop motor control. Integrated and debugged the complete hardware/software system.</p><div class="micro-tags"><span>Embedded C++</span><span>Encoders</span><span>Motor control</span></div></div>
-          </article>
-          <article class="project-card reveal" data-category="ai">
-            <div class="project-image-frame"><img src="assets/ai-placeholder.svg" alt="Illustration placeholder for conversational AI research" loading="lazy"><span class="image-placeholder-note">REPLACE WITH PROJECT PHOTO</span></div>
-            <div class="project-body"><span class="project-overline">AI RESEARCH · 2024</span><h3>Conversational AI Research</h3><p>Built a multimodal chatbot that combined computer vision, speech recognition, text-to-speech, and language processing to support natural human–computer interaction.</p><div class="micro-tags"><span>Python</span><span>Computer vision</span><span>Speech AI</span></div></div>
-          </article>
-        </div>
-        <p class="project-footer-note reveal">More prototypes, experiments, and little wins are always in the works. <span aria-hidden="true">✳</span></p>
       </div>
     </section>
 
-    <section class="section looking-ahead-section" aria-labelledby="ahead-title">
-      <div class="container">
-        <div class="looking-ahead reveal"><span class="section-label">05 / WHAT'S NEXT?</span><div class="ahead-layout"><div><h2 id="ahead-title">Always learning.<br><em>Always building.</em></h2><p>I'm excited by teams tackling difficult problems in robotics, autonomy, embedded software, simulation, controls, and AI. I care about thoughtful engineering, good questions, and getting the details right.</p></div><div class="ahead-callout"><div class="ahead-sticker">✦</div><span>Currently seeking</span><strong>Summer 2027<br>Internships</strong><a href="mailto:sfmakiankonghoenoh@widener.edu?subject=Summer%202027%20Internship%20Opportunity">Let's talk opportunities ↗</a></div></div></div>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-layout">
+        <div><p class="section-index contact-index">06 / CONTACT</p><h2 id="contact-title">Let's talk about Summer 2027.</h2><p>I'm seeking Summer 2027 internships and research opportunities in robotics, autonomy, embedded software, controls, simulation, and AI. I'd welcome a conversation about teams or projects where I could contribute.</p></div>
+        <div class="contact-actions"><a class="button button-white" href="mailto:sfmakiankonghoenoh@widener.edu?subject=Summer%202027%20Internship%20or%20Research%20Opportunity">Email me <span aria-hidden="true">↗</span></a><a class="contact-link" href="https://github.com/makiafausta-netizen" target="_blank" rel="noopener noreferrer">GitHub profile <span aria-hidden="true">↗</span></a><a class="contact-link" id="linkedin-link" href="#" hidden target="_blank" rel="noopener noreferrer">LinkedIn profile <span aria-hidden="true">↗</span></a><div class="email-line">sfmakiankonghoenoh@widener.edu <button type="button" id="copy-email" aria-label="Copy email address">Copy</button></div><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></div>
       </div>
-    </section>
-
-    <section id="contact" class="section contact-section" aria-labelledby="contact-title">
-      <div class="container contact-box reveal"><div class="contact-deco" aria-hidden="true">✦</div><span class="section-label">06 / SAY HELLO</span><h2 id="contact-title">Have a project, an idea,<br>or an opportunity? <em>Let's connect.</em></h2><p>I'd love to hear from you—whether it's about robots, research, internships, or just something exciting you're working on.</p><a class="button button-primary contact-email" href="mailto:sfmakiankonghoenoh@widener.edu">Send me an email <span aria-hidden="true">↗</span></a><div class="contact-socials"><a href="https://github.com/makiafausta-netizen" target="_blank" rel="noopener noreferrer">GitHub ↗</a><!-- Set your public LinkedIn URL in script.js to reveal this link. --><a href="#" id="linkedin-link" target="_blank" rel="noopener noreferrer" hidden>LinkedIn ↗</a><button id="copy-email" type="button" aria-label="Copy email address">Copy email <span aria-hidden="true">↗</span></button></div><p class="copy-feedback" id="copy-feedback" role="status" aria-live="polite"></p></div>
     </section>
   </main>
 
-  <footer class="footer"><div class="container footer-row"><span>© <span id="current-year">2026</span> Salient Fausta Makia</span><span>Made with curiosity, caffeine &amp; a little purple <span aria-hidden="true">♥</span></span><a href="#top">Back to top ↑</a></div></footer>
+  <footer class="site-footer"><div class="container footer-layout"><p>&copy; <span id="year">2026</span> Salient Fausta Makia. All rights reserved.</p><a href="#top">Back to top ↑</a></div></footer>
 </body>
 </html>
