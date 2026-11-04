@@ -1,105 +1,1775 @@
 
-<!-- Portfolio updates -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#faf5fa">
+<meta name="description" content="Salient Fausta Makia | Robotics, autonomy, embedded systems, simulation and AI. Seeking Summer 2027 internships and research opportunities.">
+<title>Salient Fausta Makia | Robotics & Autonomy</title>
 
 <style>
-  /* Square headshot */
-  .hero-visual .portrait-frame {
-    aspect-ratio: 1 / 1 !important;
-    overflow: hidden;
+:root {
+  --ink: #251e2b;
+  --muted: #625866;
+  --purple: #714e77;
+  --plum: #513653;
+  --pink: #f8eaf1;
+  --lavender: #f1ecf9;
+  --line: #e8dce8;
+  --white: #fff;
+  --background: #fdfafd;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: white;
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+}
+
+a { color: inherit; }
+button { font: inherit; }
+img { display: block; max-width: 100%; }
+
+.container {
+  width: min(1100px, calc(100% - 44px));
+  margin: auto;
+}
+
+:focus-visible {
+  outline: 3px solid #b88abe;
+  outline-offset: 3px;
+}
+
+h1, h2, h3, p { margin-top: 0; }
+
+.skip {
+  position: absolute;
+  top: -70px;
+  left: 15px;
+  background: white;
+  padding: 10px;
+  z-index: 300;
+}
+.skip:focus { top: 10px; }
+
+/* HEADER */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  min-height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -.8px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand span { color: #bb7eab; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+
+.nav a {
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #4b4052;
+}
+
+.nav a:hover,
+.nav a.active { color: var(--purple); }
+
+.nav .nav-contact {
+  background: var(--plum);
+  color: white;
+  border-radius: 6px;
+  padding: 10px 16px;
+}
+
+.nav .nav-contact:hover {
+  background: #38263b;
+  color: white;
+}
+
+.menu {
+  display: none;
+  background: transparent;
+  border: 1px solid #dbc9dd;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.progress { height: 3px; }
+.progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg,#c783ab,#9d88ca);
+}
+
+/* HERO */
+
+.hero {
+  background: linear-gradient(
+    125deg,
+    #fffafb 3%,
+    #fbedf5 56%,
+    #f0ecfb 100%
+  );
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 235px;
+  align-items: center;
+  gap: 75px;
+  padding: 85px 0 75px;
+}
+
+.eyebrow,
+.section-kicker {
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: clamp(40px,5vw,68px);
+  line-height: 1.09;
+  letter-spacing: -.06em;
+  margin: 16px 0 24px;
+}
+
+h1 em {
+  color: var(--purple);
+  font-style: normal;
+}
+
+.hero-lead {
+  font-size: 19px;
+  font-weight: 600;
+  color: #413347;
+}
+
+.hero-description {
+  color: #514655;
+  max-width: 640px;
+}
+
+.status {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  padding: 9px 12px;
+  background: rgba(255,255,255,.65);
+  border: 1px solid #ebd8e6;
+  border-radius: 6px;
+  color: #4c3150;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.status::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: #a46a93;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #f1dce9;
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 17px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform .2s, background .2s;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+  color: white;
+  background: var(--plum);
+}
+
+.btn-primary:hover { background: #38263b; }
+
+.btn-outline {
+  color: var(--plum);
+  background: rgba(255,255,255,.75);
+  border-color: #cdb1cc;
+}
+
+/* SQUARE HEADSHOT */
+
+.hero-photo {
+  width: 100%;
+  max-width: 235px;
+  justify-self: end;
+  text-align: center;
+}
+
+.portrait {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  border: 7px solid white;
+  border-radius: 12px;
+  background: linear-gradient(140deg,#f4ddea,#e6dff6);
+  box-shadow: 0 18px 56px rgba(64,39,70,.12);
+}
+
+.portrait-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 65px;
+  font-weight: 800;
+  color: #906f97;
+}
+
+.portrait img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portrait-note {
+  font-size: 12px;
+  font-weight: 650;
+  color: #756479;
+  margin-top: 14px;
+}
+
+.summary-strip {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+  border-top: 1px solid #dfcddd;
+  padding: 20px 0 24px;
+}
+
+.summary-strip div {
+  display: grid;
+  gap: 4px;
+}
+
+.small-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  color: #856588;
+}
+
+.summary-strip strong { font-size: 13px; }
+
+/* GENERAL SECTIONS */
+
+.section { padding: 82px 0; }
+
+.section-alt { background: var(--background); }
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 25px;
+  padding-bottom: 23px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-head h2,
+.aside-title h2 {
+  font-size: clamp(30px,3.1vw,43px);
+  letter-spacing: -.05em;
+  line-height: 1.17;
+  margin: 9px 0 0;
+}
+
+.section-head > p {
+  max-width: 380px;
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 5px;
+}
+
+.about-grid,
+.lead-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 75px;
+}
+
+.prose p {
+  color: var(--muted);
+  margin-bottom: 15px;
+}
+
+.education {
+  display: grid;
+  gap: 13px;
+  margin-top: 30px;
+}
+
+.education-item {
+  border-top: 2px solid #c8adc6;
+  padding-top: 10px;
+}
+
+.education-item strong {
+  display: block;
+  margin: 6px 0;
+}
+
+.education-item small {
+  display: block;
+  color: var(--muted);
+}
+
+/* SKILLS */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  column-gap: 24px;
+}
+
+.skill {
+  border-bottom: 1px solid var(--line);
+  padding: 23px 12px 20px 0;
+}
+
+.skill h3 {
+  font-size: 15px;
+  margin-bottom: 9px;
+}
+
+.skill p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.cert {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 24px;
+}
+
+.cert strong { color: var(--plum); }
+
+/* EXPERIENCE AND PROJECTS */
+
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 21px;
+}
+
+.jump .small-label { margin-right: 9px; }
+
+.jump a {
+  background: #fbf7fc;
+  border: 1px solid #e4d5e4;
+  border-radius: 5px;
+  padding: 7px 10px;
+  color: #604467;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.jump a:hover { background: #f2e5f1; }
+
+.entry {
+  display: grid;
+  grid-template-columns: 190px minmax(0,1fr);
+  gap: 35px;
+  border-bottom: 1px solid var(--line);
+  padding: 34px 0;
+  scroll-margin-top: 95px;
+}
+
+.entry:last-child { border-bottom: 0; }
+
+.entry:hover { background: rgba(245,235,245,.3); }
+
+.entry:target {
+  background: #f9f0f8;
+  box-shadow: inset 3px 0 #b38eaf;
+}
+
+.entry-meta {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.pill {
+  width: max-content;
+  max-width: 100%;
+  padding: 4px 8px;
+  background: #f9eff6;
+  border: 1px solid #dfc2d9;
+  border-radius: 4px;
+  color: #6c4c6a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .8px;
+}
+
+.meta-text {
+  font-size: 12px;
+  color: #7b6b7d;
+  font-weight: 650;
+}
+
+.entry h3 {
+  font-size: clamp(19px,2.2vw,25px);
+  letter-spacing: -.035em;
+  line-height: 1.25;
+  margin: 0 0 4px;
+}
+
+.org {
+  color: var(--purple);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 20px;
+  color: #423944;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.bullets li {
+  margin-bottom: 9px;
+  padding-left: 3px;
+}
+
+.bullets li::marker { color: #a777a6; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+.tags span {
+  border: 1px solid #e8dbe7;
+  background: #fcf8fc;
+  color: #5d4d61;
+  border-radius: 4px;
+  padding: 5px 9px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* LEADERSHIP */
+
+.lead-role {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.lead-role h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.award {
+  margin-top: 25px;
+  padding: 18px;
+  background: var(--lavender);
+  border-left: 3px solid #b395c7;
+  font-size: 14px;
+}
+
+/* CONTACT */
+
+.contact {
+  background: linear-gradient(110deg,#302235,#4b3551);
+  color: white;
+  padding: 76px 0;
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.contact .section-kicker { color: #e9bede; }
+
+.contact h2 {
+  font-size: clamp(30px,4vw,47px);
+  letter-spacing: -.05em;
+  line-height: 1.13;
+  margin: 12px 0;
+}
+
+.contact p {
+  color: #f0e6ef;
+  max-width: 580px;
+}
+
+.contact-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-options a {
+  padding: 10px 13px;
+  background: #fae9f4;
+  color: #422e48;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.contact-options a:hover { background: white; }
+
+.email-text {
+  margin: 18px 0 7px;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.copy-btn {
+  cursor: pointer;
+  padding: 6px 11px;
+  border: 1px solid #b89cb8;
+  border-radius: 4px;
+  background: transparent;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.copy-status {
+  min-height: 20px;
+  font-size: 12px;
+  color: #f0d5ec;
+  margin-top: 6px;
+}
+
+/* FOOTER AND INTERACTIONS */
+
+.footer {
+  background: #231a26;
+  color: #b8adbd;
+  font-size: 12px;
+  padding: 20px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.footer a { color: #e9dbe9; }
+
+.back-top {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .2s, transform .2s;
+  background: white;
+  border: 1px solid #e1cee0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: var(--plum);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 30px #25142617;
+}
+
+.back-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* TABLET */
+
+@media(max-width:820px) {
+  .hero-grid {
+    grid-template-columns: minmax(0,1fr) 175px;
+    gap: 30px;
   }
 
-  .hero-visual .portrait-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .hero-photo { max-width: 175px; }
+
+  .skills-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
   }
 
-  /* Email contact window */
-  #contact-email-dialog {
-    border: 1px solid #e9d9e7;
-    border-radius: 12px;
-    padding: 28px;
-    width: min(420px, 90vw);
+  .about-grid,
+  .lead-grid { gap: 35px; }
+
+  .entry {
+    grid-template-columns: 140px minmax(0,1fr);
+    gap: 22px;
+  }
+
+  .nav { gap: 13px; }
+}
+
+/* MOBILE */
+
+@media(max-width:640px) {
+  .container {
+    width: min(100% - 34px,1100px);
+  }
+
+  .header-inner { min-height: 62px; }
+
+  .brand { font-size: 17px; }
+
+  .menu { display: block; }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
     background: white;
-    color: #302637;
-    box-shadow: 0 20px 60px #0003;
+    border-bottom: 1px solid var(--line);
+    padding: 16px 23px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3px;
   }
 
-  #contact-email-dialog::backdrop {
-    background: #0008;
+  .nav.open { display: flex; }
+
+  .nav a { padding: 10px 8px; }
+
+  .nav .nav-contact {
+    text-align: center;
+    margin-top: 5px;
   }
 
-  #contact-email-dialog a {
+  .hero-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 20px;
+    padding: 35px 0 44px;
+  }
+
+  .hero-photo {
+    max-width: 168px;
+    align-self: flex-start;
+  }
+
+  .portrait-note { text-align: left; }
+
+  h1 { font-size: 43px; }
+
+  .hero-lead { font-size: 17px; }
+
+  .summary-strip {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .section { padding: 57px 0; }
+
+  .section-head { display: block; }
+
+  .section-head > p { margin-top: 10px; }
+
+  .about-grid,
+  .lead-grid,
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .skills-grid { grid-template-columns: 1fr; }
+
+  .skill { padding: 17px 0; }
+
+  .entry {
     display: block;
-    margin: 12px 0;
-    padding: 12px;
-    border: 1px solid #e8d8e8;
-    border-radius: 6px;
-    color: #523459;
-    text-decoration: none;
+    padding: 26px 0;
   }
 
-  #contact-email-dialog a:hover {
-    background: #f9f0f8;
+  .entry-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
   }
 
-  #close-contact-email {
-    padding: 10px 18px;
-    cursor: pointer;
+  .contact { padding: 55px 0; }
+
+  .footer-inner { flex-direction: column; }
+
+  .back-top {
+    right: 12px;
+    bottom: 12px;
   }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior: auto; }
+  .btn,.back-top { transition: none; }
+}
 </style>
+</head>
 
-<dialog id="contact-email-dialog">
-  <h3>Get in touch</h3>
-  <p>Choose how you would like to send an email.</p>
+<body>
 
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sfmakiankonghoenoh%40widener.edu"
-     target="_blank" rel="noopener noreferrer">
-    Compose in Gmail
-  </a>
+<a class="skip" href="#main">Skip to content</a>
 
-  <a href="https://outlook.office.com/mail/deeplink/compose?to=sfmakiankonghoenoh%40widener.edu"
-     target="_blank" rel="noopener noreferrer">
-    Compose in Outlook
-  </a>
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="brand">
+      Salient Fausta Makia<span>.</span>
+    </a>
 
-  <a href="mailto:sfmakiankonghoenoh@widener.edu">
-    Use default email app
-  </a>
+    <button
+      class="menu"
+      id="menu"
+      aria-expanded="false"
+      aria-controls="nav"
+      type="button">
+      Menu
+    </button>
 
-  <button id="close-contact-email" type="button">
-    Close
-  </button>
-</dialog>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#leadership">Leadership</a>
+      <a class="nav-contact" href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <div class="progress" aria-hidden="true">
+    <span id="progress"></span>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- INTRODUCTION -->
+
+<section class="hero" id="about">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">
+        Robotics / Autonomy / Artificial Intelligence
+      </div>
+
+      <h1>
+        I build and test
+        <em>intelligent robotic systems.</em>
+      </h1>
+
+      <p class="hero-lead">
+        I'm Salient Fausta Makia, a Robotics, Mechatronics
+        &amp; Automation Engineering student at Widener
+        University, with a minor in Computer Science.
+      </p>
+
+      <p class="hero-description">
+        I enjoy working where software meets hardware.
+        My experience spans embedded systems, sensor
+        integration, controls, simulation, and AI.
+        I'm motivated by making robotic systems more
+        capable, reliable, and practical in the real world.
+      </p>
+
+      <div class="status">
+        Seeking Summer 2027 internships and research opportunities
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#experience">
+          Explore my experience
+        </a>
+        <a class="btn btn-outline" href="#contact">
+          Get in touch
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="portrait">
+        <div class="portrait-fallback" aria-hidden="true">
+          SM
+        </div>
+
+        <!-- Replace with your actual headshot path -->
+        <img
+          src="assets/portrait-placeholder.svg"
+          alt="Portrait placeholder for Salient Fausta Makia"
+          onerror="this.style.display='none'">
+      </div>
+
+      <p class="portrait-note">
+        Widener University | Chester, PA
+      </p>
+    </div>
+  </div>
+
+  <div class="container summary-strip">
+    <div>
+      <span class="small-label">FOCUS</span>
+      <strong>Autonomy and embedded controls</strong>
+    </div>
+
+    <div>
+      <span class="small-label">INDUSTRY</span>
+      <strong>SharkNinja | Summer 2026</strong>
+    </div>
+
+    <div>
+      <span class="small-label">EDUCATION</span>
+      <strong>B.S. expected May 2027</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT ME -->
+
+<section class="section" aria-labelledby="about-title">
+  <div class="container about-grid">
+    <div class="aside-title">
+      <span class="section-kicker">01 / About</span>
+      <h2 id="about-title">Why I work in robotics.</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        What interests me most about robotics is how different
+        engineering disciplines come together to produce intelligent
+        physical systems. I enjoy writing software, integrating
+        hardware, evaluating sensor data, and understanding why a
+        system works in simulation but behaves differently during
+        real testing.
+      </p>
+
+      <p>
+        My experience includes simulation and validation at
+        SharkNinja, autonomous mobility research at Widener
+        University, embedded robotics, industrial automation,
+        and AI. I am particularly interested in autonomous
+        systems, robotics software, perception, controls,
+        and applied research.
+      </p>
+
+      <div class="education">
+        <div class="education-item">
+          <span class="small-label">CURRENT EDUCATION</span>
+          <strong>
+            B.S. Robotics, Mechatronics &amp; Automation Engineering
+          </strong>
+          <small>
+            Widener University | Computer Science minor |
+            GPA 3.7/4.0 | Expected May 2027
+          </small>
+        </div>
+
+        <div class="education-item">
+          <span class="small-label">FUTURE PLANS</span>
+          <strong>
+            Planned M.S. in Robotics, Mechatronics
+            &amp; Automation Engineering
+          </strong>
+          <small>Intended start: August 2027</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNICAL SKILLS -->
+
+<section class="section section-alt" id="skills">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">02 / Technical Skills</span>
+        <h2>Tools and methods.</h2>
+      </div>
+
+      <p>
+        Software, hardware, and engineering tools used across
+        my projects and research.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill">
+        <h3>Programming &amp; Software</h3>
+        <p>
+          C/C++, Python, Embedded C, Linux (Ubuntu),
+          Git, debugging
+        </p>
+      </div>
+
+      <div class="skill">
+        <h3>Embedded Systems &amp; Controls</h3>
+        <p>
+          CAN bus, Ethernet, PID control, state estimation,
+          Kalman filtering, STM32, ESP32
+        </p>
+      </div>
+
+      <div class="skill">
+        <h3>Robotics &amp; Simulation</h3>
+        <p>
+          ROS2, RTAB-Map, MATLAB/Simulink, MuJoCo,
+          NVIDIA Isaac Sim, Gazebo, RViz
+        </p>
+      </div>
+
+      <div class="skill">
+        <h3>Testing &amp; Validation</h3>
+        <p>
+          Sensor simulation, HIL workflows, KPI-based
+          validation, log analysis, fault diagnosis
+        </p>
+      </div>
+
+      <div class="skill">
+        <h3>Machine Learning &amp; Vision</h3>
+        <p>
+          PyTorch, TensorFlow, OpenCV, ArUco markers,
+          reinforcement learning, image processing
+        </p>
+      </div>
+
+      <div class="skill">
+        <h3>Hardware &amp; Design</h3>
+        <p>
+          NVIDIA Jetson, Raspberry Pi, Arduino, LiDAR,
+          IMU, PLCs, Universal Robots, SolidWorks,
+          AutoCAD, FEA
+        </p>
+      </div>
+
+    </div>
+
+    <p class="cert">
+      <strong>Certification:</strong>
+      Universal Robots e-Series Core Track, January 2026
+    </p>
+
+  </div>
+</section>
+
+<!-- ENGINEERING EXPERIENCE -->
+
+<section class="section" id="experience">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">03 / Engineering Experience</span>
+        <h2>Industry and research.</h2>
+      </div>
+
+      <p>
+        Hands-on software development, validation, systems
+        engineering, and robotics research.
+      </p>
+    </div>
+
+    <div class="jump">
+      <span class="small-label">JUMP TO</span>
+      <a href="#sharkninja">SharkNinja</a>
+      <a href="#wheelchair">Wheelchair research</a>
+      <a href="#ai-research">AI research</a>
+      <a href="#lab-assistant">Research lab</a>
+    </div>
+
+    <!-- SHARKNINJA -->
+
+    <article class="entry" id="sharkninja">
+      <div class="entry-meta">
+        <span class="pill">INDUSTRY</span>
+        <span class="meta-text">Summer 2026</span>
+        <span class="meta-text">Needham, MA</span>
+      </div>
+
+      <div>
+        <h3>Robotics &amp; Mechatronics Engineering Intern</h3>
+        <p class="org">SharkNinja | Robot Vacuum Team</p>
+
+        <ul class="bullets">
+          <li>
+            Developed Python/MuJoCo simulations to evaluate robot
+            kinematics, dynamics, clearances, and mechanical
+            constraints before physical testing.
+          </li>
+
+          <li>
+            Built a reusable library of simulation environments
+            and edge-case scenarios to test navigation and robot
+            behavior across vacuum configurations.
+          </li>
+
+          <li>
+            Simulated ToF and LiDAR sensor behavior, using KPIs
+            to evaluate sensing accuracy and system performance.
+          </li>
+
+          <li>
+            Used NVIDIA Isaac Sim and real-world sensor inputs
+            in HIL-oriented validation and debugging workflows.
+          </li>
+
+          <li>
+            Developed a Python/OpenCV GUI using ArUco markers
+            for real-time angle calculations, motion detection,
+            visualization, and debugging.
+          </li>
+
+          <li>
+            Supported reinforcement learning workflows with
+            real-world and synthetically generated data for
+            robotic behavior training.
+          </li>
+
+          <li>
+            Collaborated with mechanical, electrical, and
+            systems engineers on robotics and AI development.
+          </li>
+        </ul>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>MuJoCo</span>
+          <span>Isaac Sim</span>
+          <span>OpenCV</span>
+          <span>Sensor testing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- WHEELCHAIR RESEARCH -->
+
+    <article class="entry" id="wheelchair">
+      <div class="entry-meta">
+        <span class="pill">AUTONOMY RESEARCH</span>
+        <span class="meta-text">May 2025 to Present</span>
+        <span class="meta-text">Chester, PA</span>
+      </div>
+
+      <div>
+        <h3>Semi-Autonomous Electric Wheelchair</h3>
+        <p class="org">
+          Widener University | Robotic Vehicle Platform
+        </p>
+
+        <ul class="bullets">
+          <li>
+            Developed a ROS2-based autonomy stack (C++/Python)
+            for perception and motor control on NVIDIA Jetson
+            and ESP32 hardware.
+          </li>
+
+          <li>
+            Integrated four 2D/4D LiDAR sensors, processing more
+            than 120,000 point-cloud data points for mapping
+            and obstacle detection.
+          </li>
+
+          <li>
+            Implemented RTAB-Map SLAM in ROS2 for LiDAR-based
+            mapping and localization, with IMU and ultrasonic
+            sensing supporting navigation and obstacle detection.
+          </li>
+
+          <li>
+            Implemented CAN bus communication to translate
+            sensor feedback and autonomous navigation decisions
+            into motor commands.
+          </li>
+
+          <li>
+            Integrated IMU and ultrasonic sensing for state
+            estimation and obstacle detection; continued
+            development of wheel encoder odometry.
+          </li>
+
+          <li>
+            Developed path-planning logic for stationary and
+            moving obstacles while accounting for wheelchair
+            dimensions and clearances.
+          </li>
+
+          <li>
+            Used Gazebo, RViz, and MATLAB/Simulink to test control
+            algorithms, navigation logic, and sensor behavior.
+          </li>
+
+          <li>
+            Designed custom sensor mounts with AutoCAD, FEA,
+            and 3D printing; received the Best Research
+            Presentation Award.
+          </li>
+        </ul>
+
+        <div class="tags">
+          <span>ROS2</span>
+          <span>RTAB-Map SLAM</span>
+          <span>C++ / Python</span>
+          <span>CAN bus</span>
+          <span>Jetson</span>
+          <span>LiDAR</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- AI RESEARCH -->
+
+    <article class="entry" id="ai-research">
+      <div class="entry-meta">
+        <span class="pill">APPLIED AI</span>
+        <span class="meta-text">May to September 2024</span>
+        <span class="meta-text">Widener University</span>
+      </div>
+
+      <div>
+        <h3>AI &amp; Machine Learning Researcher</h3>
+        <p class="org">
+          Conversational AI and Multimodal Interaction
+        </p>
+
+        <ul class="bullets">
+          <li>
+            Designed and deployed a multimodal chatbot
+            integrating computer vision, speech recognition,
+            and natural language processing.
+          </li>
+
+          <li>
+            Developed camera-based facial recognition and
+            tracking pipelines for identifying users.
+          </li>
+
+          <li>
+            Integrated machine learning models and APIs into
+            a Python/Linux application for information retrieval
+            and interaction.
+          </li>
+        </ul>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>Computer vision</span>
+          <span>NLP</span>
+          <span>Linux</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ROBOTICS LAB ASSISTANT -->
+
+    <article class="entry" id="lab-assistant">
+      <div class="entry-meta">
+        <span class="pill">RESEARCH SUPPORT</span>
+        <span class="meta-text">January to May 2024</span>
+        <span class="meta-text">Widener University</span>
+      </div>
+
+      <div>
+        <h3>
+          Robotics, Automation &amp; Controls
+          Research Lab Assistant
+        </h3>
+
+        <p class="org">
+          Robotics Hardware Integration and Testing
+        </p>
+
+        <ul class="bullets">
+          <li>
+            Assisted with the assembly and programming of a
+            humanoid robot for interactive demonstrations.
+          </li>
+
+          <li>
+            Supported sensor installation, actuator integration,
+            and firmware debugging during robotics testing.
+          </li>
+
+          <li>
+            Helped write and debug C++ and Python software
+            for laboratory experiments.
+          </li>
+        </ul>
+
+        <div class="tags">
+          <span>C++ / Python</span>
+          <span>Embedded hardware</span>
+          <span>Sensors</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ENGINEERING PROJECTS -->
+
+<section class="section section-alt" id="projects">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">04 / Engineering Projects</span>
+        <h2>Additional technical work.</h2>
+      </div>
+
+      <p>
+        Projects involving industrial automation, embedded
+        controls, perception, and human-robot interaction.
+      </p>
+    </div>
+
+    <div class="jump">
+      <span class="small-label">JUMP TO</span>
+      <a href="#plc">PLC &amp; UR3e</a>
+      <a href="#robosub">Underwater vehicle</a>
+      <a href="#firebot">Firefighting robot</a>
+      <a href="#chatbot">Conversational AI</a>
+    </div>
+
+    <!-- PLC AUTOMATION -->
+
+    <article class="entry" id="plc">
+      <div class="entry-meta">
+        <span class="pill">INDUSTRIAL AUTOMATION</span>
+        <span class="meta-text">2026</span>
+      </div>
+
+      <div>
+        <h3>
+          PLC and UR3e Automated Gauging &amp; Sorting Station
+        </h3>
+
+        <p class="org">
+          Conveyor Automation | Industrial Robotics
+        </p>
+
+        <ul class="bullets">
+          <li>
+            Programmed PLC control logic to coordinate an
+            automated conveyor, gauging station, and part-sorting
+            sequence.
+          </li>
+
+          <li>
+            Integrated capacitive, optical, and retroreflective
+            sensors for part detection and automated
+            decision-making.
+          </li>
+
+          <li>
+            Programmed a Universal Robots UR3e arm for
+            pick-and-place tasks based on gauging results
+            and sensor inputs.
+          </li>
+
+          <li>
+            Implemented PLC-to-robot coordination, timers,
+            counters, start/stop conditions, safety interlocks,
+            and fault handling.
+          </li>
+
+          <li>
+            Tested normal operation, sensor transitions,
+            and stop/reset scenarios to verify station behavior.
+          </li>
+        </ul>
+
+        <div class="tags">
+          <span>PLC ladder logic</span>
+          <span>UR3e</span>
+          <span>Sensors</span>
+          <span>Safety interlocks</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- UNDERWATER ROBOT -->
+
+    <article class="entry" id="robosub">
+      <div class="entry-meta">
+        <span class="pill">AUTONOMOUS ROBOTICS</span>
+        <span class="meta-text">May to September 2025</span>
+      </div>
+
+      <div>
+        <h3>Autonomous Underwater Vehicle</h3>
+        <p class="org">RoboSub Competition 2025</p>
+
+        <ul class="bullets">
+          <li>
+            Developed ROS2-based embedded software (C++/Python)
+            for real-time autonomous navigation and motor control.
+          </li>
+
+          <li>
+            Used Ethernet communication to remotely debug and
+            validate software and motor control during underwater
+            testing.
+          </li>
+
+          <li>
+            Developed OpenCV perception pipelines, integrating
+            camera, IMU, and pressure data for object detection.
+          </li>
+
+          <li>
+            Modeled and tuned PID control systems in
+            MATLAB/Simulink, validating performance in simulation
+            and field tests.
+          </li>
+
+          <li>
+            Integrated Arduino, Raspberry Pi, and STM32 hardware,
+            including wiring and waterproof enclosure assembly.
+          </li>
+        </ul>
+
+        <div class="tags">
+          <span>ROS2</span>
+          <span>Ethernet</span>
+          <span>OpenCV</span>
+          <span>PID</span>
+          <span>MATLAB/Simulink</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- FIREFIGHTING ROBOT -->
+
+    <article class="entry" id="firebot">
+      <div class="entry-meta">
+        <span class="pill">EMBEDDED ROBOTICS</span>
+        <span class="meta-text">January to May 2025</span>
+      </div>
+
+      <div>
+        <h3>Autonomous Firefighting Robot</h3>
+        <p class="org">
+          Embedded Control and Sensor Integration
+        </p>
+
+        <ul class="bullets">
+          <li>
+            Developed embedded software for sensor processing,
+            autonomous decision-making, and motion control.
+          </li>
+
+          <li>
+            Implemented closed-loop motor control using
+            encoder feedback.
+          </li>
+
+          <li>
+            Integrated flame, ultrasonic, and proximity sensing
+            for autonomous navigation and detection.
+          </li>
+
+          <li>
+            Performed hardware/software integration, debugging,
+            and performance tuning.
+          </li>
+        </ul>
+
+        <div class="tags">
+          <span>Embedded software</span>
+          <span>Encoders</span>
+          <span>Closed-loop control</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- CONVERSATIONAL AI -->
+
+    <article class="entry" id="chatbot">
+      <div class="entry-meta">
+        <span class="pill">ARTIFICIAL INTELLIGENCE</span>
+        <span class="meta-text">Summer 2024</span>
+      </div>
+
+      <div>
+        <h3>Multimodal Conversational AI System</h3>
+        <p class="org">
+          Research Project | Python and Human-Robot Interaction
+        </p>
+
+        <ul class="bullets">
+          <li>
+            Built a multimodal chatbot integrating computer
+            vision, speech-to-text, text-to-speech, and natural
+            language processing.
+          </li>
+
+          <li>
+            Developed face recognition and tracking using
+            camera input.
+          </li>
+
+          <li>
+            Integrated machine learning tools and APIs in
+            a Python/Linux application.
+          </li>
+        </ul>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>Computer vision</span>
+          <span>Speech AI</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+
+<section class="section" id="leadership">
+  <div class="container lead-grid">
+
+    <div class="aside-title">
+      <span class="section-kicker">05 / Leadership</span>
+      <h2>Beyond technical work.</h2>
+    </div>
+
+    <div>
+      <div class="lead-role">
+        <h3>Founder &amp; President, Widener AI Club</h3>
+
+        <ul class="bullets">
+          <li>
+            Founded and led a student organization with more
+            than 40 members interested in AI, robotics,
+            and engineering.
+          </li>
+
+          <li>
+            Organized workshops and collaborative technical
+            activities to support student learning.
+          </li>
+        </ul>
+      </div>
+
+      <div class="lead-role">
+        <h3>STEM Tutor</h3>
+
+        <ul class="bullets">
+          <li>
+            Tutored mathematics, physics, and engineering topics,
+            including Python, C++, and MATLAB.
+          </li>
+
+          <li>
+            Helped students develop technical problem-solving
+            skills.
+          </li>
+        </ul>
+      </div>
+
+      <div class="award">
+        <strong>Recognition:</strong>
+        Best Research Presentation Award for the autonomous
+        mobility research project.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+
+    <div>
+      <span class="section-kicker">06 / Contact</span>
+
+      <h2>Let's talk about Summer 2027.</h2>
+
+      <p>
+        I'm looking for Summer 2027 internships and research
+        opportunities in robotics, autonomy, embedded software,
+        controls, simulation, and AI.
+        I would welcome the opportunity to discuss how
+        I could contribute to your team.
+      </p>
+    </div>
+
+    <div>
+      <div class="contact-options">
+
+        <a
+          href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sfmakiankonghoenoh%40widener.edu&amp;su=Summer%202027%20Opportunity"
+          target="_blank"
+          rel="noopener noreferrer">
+          Email me with Gmail
+        </a>
+
+        <a
+          href="https://outlook.office.com/mail/deeplink/compose?to=sfmakiankonghoenoh%40widener.edu&amp;subject=Summer%202027%20Opportunity"
+          target="_blank"
+          rel="noopener noreferrer">
+          Use Outlook
+        </a>
+
+        <a
+          href="mailto:sfmakiankonghoenoh@widener.edu?subject=Summer%202027%20Opportunity">
+          Other email app
+        </a>
+
+      </div>
+
+      <p class="email-text">
+        sfmakiankonghoenoh@widener.edu
+      </p>
+
+      <button
+        class="copy-btn"
+        id="copy-email"
+        type="button">
+        Copy email address
+      </button>
+
+      <div
+        class="copy-status"
+        id="copy-status"
+        role="status"
+        aria-live="polite">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>
+      © <span id="year">2026</span> Salient Fausta Makia
+    </span>
+
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<a
+  class="back-top"
+  id="back-top"
+  href="#top"
+  aria-label="Back to top">
+  ↑ Top
+</a>
+
+<!-- INTERACTIVE FEATURES -->
 
 <script>
-  // Remove GitHub links from the website.
-  document.querySelectorAll('a[href*="github.com"]')
-    .forEach(link => link.remove());
+(() => {
 
-  // Connect email buttons to the contact window.
-  const existingEmailDialog =
-    document.getElementById("email-dialog");
+  // Mobile navigation
+  const menu = document.getElementById('menu');
+  const nav = document.getElementById('nav');
 
-  if (!existingEmailDialog) {
-    const dialog =
-      document.getElementById("contact-email-dialog");
+  if (menu && nav) {
+    menu.addEventListener('click', () => {
+      const opening =
+        menu.getAttribute('aria-expanded') !== 'true';
 
-    document.querySelectorAll(
-      '.actions a[href^="mailto:"], ' +
-      '.contact-actions a[href^="mailto:"]'
-    ).forEach(link => {
-      link.addEventListener("click", event => {
-        event.preventDefault();
-        dialog.showModal();
+      menu.setAttribute('aria-expanded', String(opening));
+      nav.classList.toggle('open', opening);
+    });
+
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menu.setAttribute('aria-expanded', 'false');
       });
     });
 
-    document.getElementById("close-contact-email")
-      .addEventListener("click", () => dialog.close());
-
-    dialog.addEventListener("click", event => {
-      if (event.target === dialog) dialog.close();
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        nav.classList.remove('open');
+        menu.setAttribute('aria-expanded', 'false');
+      }
     });
   }
+
+  // Reading progress and back-to-top button
+  const bar = document.getElementById('progress');
+  const top = document.getElementById('back-top');
+
+  const links = [
+    ...document.querySelectorAll('.nav a[href^="#"]')
+  ];
+
+  const sections = [
+    ...document.querySelectorAll('main section[id]')
+  ];
+
+  const refresh = () => {
+
+    const max =
+      document.documentElement.scrollHeight -
+      window.innerHeight;
+
+    if (bar) {
+      bar.style.width =
+        (max > 0
+          ? Math.min(100, window.scrollY / max * 100)
+          : 0) + '%';
+    }
+
+    if (top) {
+      top.classList.toggle('show', window.scrollY > 500);
+    }
+
+    let current = 'about';
+
+    for (const section of sections) {
+      if (section.offsetTop < window.scrollY + 160) {
+        current = section.id;
+      }
+    }
+
+    links.forEach(a => {
+      const active =
+        a.getAttribute('href') === '#' + current;
+
+      a.classList.toggle('active', active);
+
+      if (active) {
+        a.setAttribute('aria-current', 'location');
+      } else {
+        a.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', refresh, {
+    passive: true
+  });
+
+  window.addEventListener('resize', refresh);
+
+  refresh();
+
+  // Automatic copyright year
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+  // Copy email address
+  document.getElementById('copy-email')
+    .addEventListener('click', async () => {
+
+      const email =
+        'sfmakiankonghoenoh@widener.edu';
+
+      const status =
+        document.getElementById('copy-status');
+
+      try {
+        await navigator.clipboard.writeText(email);
+        status.textContent = 'Email address copied.';
+      } catch {
+        status.textContent =
+          'Copy this address: ' + email;
+      }
+
+    });
+
+})();
 </script>
+
+</body>
+</html>
